@@ -127,19 +127,4 @@ app.openapi = custom_openapi
 
 @app.get("/")
 def hello_route():
-    return {"message": "Välkommen till F-Sektionens bäckend"}
-
-
-@app.get("/user-only")
-def user_only():
-    return {"message": "Hello, you are a user."}
-
-
-@app.get("/member-only")
-def member_only():
-    return {"message": "Congratz! Only members can reach this route"}
-
-
-@app.get("/manage-event-only")
-def permission_route():
-    return {"message": "Congratz. You reached a manage:Event route"}
+    return {"message": "Välkommen till Foobar Eats API!"}
