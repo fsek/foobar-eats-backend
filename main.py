@@ -6,7 +6,6 @@ import database
 from database import init_db, session_factory
 from seed import seed_if_empty
 from routes import main_router
-from user.permission import Permission
 import os
 from fastapi.openapi.utils import get_openapi
 import redis.asyncio as redis
@@ -131,16 +130,16 @@ def hello_route():
     return {"message": "Välkommen till F-Sektionens bäckend"}
 
 
-@app.get("/user-only", dependencies=[Permission.base()])
+@app.get("/user-only")
 def user_only():
     return {"message": "Hello, you are a user."}
 
 
-@app.get("/member-only", dependencies=[Permission.member()])
+@app.get("/member-only")
 def member_only():
     return {"message": "Congratz! Only members can reach this route"}
 
 
-@app.get("/manage-event-only", dependencies=[Permission.require("manage", "Event")])
+@app.get("/manage-event-only")
 def permission_route():
     return {"message": "Congratz. You reached a manage:Event route"}
