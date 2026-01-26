@@ -1,5 +1,21 @@
 # <em>Foobar Eats Backend</em>
 
+## Specifikation
+
+Hej nya spindel! Nu är det dags att bygga en liten server till FooBar Eats(TM). I korthet ska klienterna (användarnas hemsidor) kunna
+
+- se vad som finns att köpa
+- lägga en order
+- se sin orderstatus.
+
+För den våghalsiga finns även en svårläslig [OpenAPI-specifikation](https://foobar-eats.fly.dev/docs) som egentligen säger precis samma sak som punktlistan ovan fast på ett superpetigt sätt. Men ni kommer behöva läsa den i sinom tid för att servern ska passa med frontenden som era kollegor bygger. Det hela kan liknas vid Askungen, där era kollegors frontend är foten och er server är glasskon. OpenAPI-specifikationen i samma liknelse skulle vara [lästen](https://sv.wikipedia.org/wiki/L%C3%A4st).[^1]
+
+[^1]: Förlåt för den liknelsen. Om ni kommer på någon bättre får ni gärna ändra detta dokument och öppna en _pull request_. Fråga en superman om ni är osäkra på hur ni ska göra.
+
+För att göra livet lite roligare och mer spännande för användarna får ni gärna se till så att lagda ordrar så småningom blir klara. Hur snabbt de ska bli klara väljer ni själva. Resten av specifikationen hann jag tyvärr inte skriva så fråga mig (Åke) istället!
+
+## Overview
+
 This repo uses VSCode's Dev Containers extension to standardize the development environment and avoid headache-inducing installation. All development will happen inside a Docker container which installs the same dependencies and versions on every developer's machine.
 
 ## Installation
@@ -52,8 +68,3 @@ You can either run the project locally or via Github codespaces. Since Github ha
 1. You can stop the FastAPI server anytime by entering `Ctrl+C` in the Bash terminal.
 
 1. Run `pip list` to see all installed pip packages.
-
-
-
-
-
