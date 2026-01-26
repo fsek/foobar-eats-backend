@@ -6,7 +6,7 @@ Hej nya spindel! Nu är det dags att bygga en liten server till FooBar Eats(TM).
 
 - se vad som finns att köpa
 - lägga en order
-- se sin orderstatus.
+- se orderstatus för någon order med ett givet id.
 
 För den våghalsiga finns även en svårläslig [OpenAPI-specifikation](https://foobar-eats.fly.dev/docs) som egentligen säger precis samma sak som punktlistan ovan fast på ett superpetigt sätt. Men ni kommer behöva läsa den i sinom tid för att servern ska passa med frontenden som era kollegor bygger. Det hela kan liknas vid Askungen, där era kollegors frontend är foten och er server är glasskon. OpenAPI-specifikationen i samma liknelse skulle vara [lästen](https://sv.wikipedia.org/wiki/L%C3%A4st).[^1]
 
@@ -68,3 +68,4 @@ You can either run the project locally or via Github codespaces. Since Github ha
 1. You can stop the FastAPI server anytime by entering `Ctrl+C` in the Bash terminal.
 
 1. Run `pip list` to see all installed pip packages.
+
