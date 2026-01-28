@@ -24,7 +24,7 @@ You can either run the project locally or via Github codespaces. Since Github ha
 
 ### Using Codespaces
 
-1. Go to the main Github page and click the green "Code" button
+1. Go to [the main Github page for this repo](https://github.com/fsek/foobar-eats-backend), scroll up and click the green "Code" button
 2. Go to the codespaces tab and create a new codespace
 3. Everything should set itself up automatically, wait until it says "your application running is available at...".
 4. If you want to get back to the codespace after closing it, go to the repository and once again click the green CODE button. It should show up in a list. You can also choose to open the codespace using vscode if you don't like the URL bar at the top, by clicking the three dots next to the codespace.
@@ -68,4 +68,5 @@ You can either run the project locally or via Github codespaces. Since Github ha
 1. You can stop the FastAPI server anytime by entering `Ctrl+C` in the Bash terminal.
 
 1. Run `pip list` to see all installed pip packages.
+
 
