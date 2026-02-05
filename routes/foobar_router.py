@@ -44,3 +44,11 @@ def create_order(order_data: OrderCreate, db: DB_dependency):
     db.add(order)
     db.commit()
     return order
+
+
+@foobar_router.get("/{order_id}", response_model=OrderRead)
+def get_order_from_id(order_id: int, db: DB_dependency):
+    order = db.query(Order_DB).filter_by(id=order_id).one_or_none()
+    if order is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
+    return order
