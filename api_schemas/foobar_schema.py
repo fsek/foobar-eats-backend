@@ -1,5 +1,5 @@
+from typing import Literal
 from api_schemas.base_schema import BaseSchema
-from enum import Enum
 
 
 class OrderCreate(BaseSchema):
@@ -15,17 +15,20 @@ class MenuItemRead(BaseSchema):
     price: int  # Price of the item in whole SEK:.
 
 
+OrderStatus = Literal["Pending", "Processing", "Completed"]
+
+
 class OrderRead(BaseSchema):
     id: int  # The ID of the order.
     items: list[int]  # The IDs of the items in the order.
     placed_at: str  # The time that the order was placed.
-    status: str  # 1 - Pending, 2 - Processing, 3 - Completed.
+    status: OrderStatus  # 1 - Pending, 2 - Processing, 3 - Completed.
     total: int  # The total cost of the order.
     address: str  # The address to deliver the order to.
     note: str
 
 
-class OrderStatus(Enum):
-    Pending = "Pending"
-    Processing = "Proccesing"
-    Completed = "Completed"
+# class OrderStatus(Enum):
+#     Pending = "Pending"
+#     Processing = "Proccesing"
+#     Completed = "Completed"

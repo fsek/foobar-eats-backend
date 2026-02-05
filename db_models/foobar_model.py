@@ -17,9 +17,9 @@ class Order_DB(BaseModel_DB):
 
     total: Mapped[int] = mapped_column()
 
-    address: Mapped[str] = mapped_column()
+    note: Mapped[str] = mapped_column()
 
-    note: Mapped[str] = mapped_column(init=False, default="")
+    address: Mapped[str] = mapped_column()
 
 
 class Item_DB(BaseModel_DB):
