@@ -12,6 +12,3 @@ class menu_item(BaseModel_DB):
     description: Mapped[str] = mapped_column()
     hasRunOut: Mapped[bool] = mapped_column(init=False, default=False)
     ingredients: Mapped[list[str]] = mapped_column()
-
-
-# gjreogjreoigjoi
