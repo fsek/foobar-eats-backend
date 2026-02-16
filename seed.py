@@ -36,19 +36,26 @@ def seed_fruits(db: Session):
     db.commit()
     return fruits
 
+
 def seed_menu(db: Session):
     menu = [
         menu_item(
             name="Bröd",
             price=10,
             description="Stenugnsbakat surdegsbröd",
-            ingredients = ["Vetemjöl","Jäst","Rågmjöl","Salt"],
+            ingredients=["Vetemjöl", "Jäst", "Rågmjöl", "Salt"],
         ),
         menu_item(
-            name = "Kaffe",
-            price = 6,
-            description = "Mörkrost",
-            ingredients = ["Kaffe","Vatten"],
+            name="Kaffe",
+            price=6,
+            description="Mörkrost",
+            ingredients=["Kaffe", "Vatten"],
+        ),
+        menu_item(
+            name="Citronkladdkaka",
+            price=10,
+            description="Syrlig och god",
+            ingredients=["Smör", "Ägg", "Vetemjöl", "Citron", "Socker", "Vaniljsocker"],
         ),
     ]
 
@@ -57,6 +64,7 @@ def seed_menu(db: Session):
 
     db.commit()
     return menu
+
 
 """
 def seed_if_empty(app: FastAPI, db: Session):
@@ -68,7 +76,9 @@ def seed_if_empty(app: FastAPI, db: Session):
     seed_fruits(db)
     print("Done seeding!")
 """
-#"""
+
+
+# """
 def seed_if_empty(app: FastAPI, db: Session):
     # If there are fruits, assume DB is already seeded
     if db.query(menu_item).count() > 0:
@@ -77,4 +87,6 @@ def seed_if_empty(app: FastAPI, db: Session):
     print("Time to seed.")
     seed_menu(db)
     print("Done seeding!")
+
+
 # """
