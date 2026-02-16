@@ -1,6 +1,8 @@
 from fastapi import FastAPI
+from requests import session
 from sqlalchemy.orm import Session
 from db_models.example_model import Fruit_DB
+from db_models.menu_model import menu_item
 
 
 def seed_fruits(db: Session):
@@ -34,7 +36,29 @@ def seed_fruits(db: Session):
     db.commit()
     return fruits
 
+def seed_menu(db: Session):
+    menu = [
+        menu_item(
+            name="Bröd",
+            price=10,
+            description="Stenugnsbakat surdegsbröd",
+            ingredients = ["Vetemjöl","Jäst","Rågmjöl","Salt"],
+        ),
+        menu_item(
+            name = "Kaffe",
+            price = 6,
+            description = "Mörkrost",
+            ingredients = ["Kaffe","Vatten"],
+        ),
+    ]
 
+    for item in menu:
+        db.add(item)
+
+    db.commit()
+    return menu
+
+"""
 def seed_if_empty(app: FastAPI, db: Session):
     # If there are fruits, assume DB is already seeded
     if db.query(Fruit_DB).count() > 0:
@@ -43,3 +67,14 @@ def seed_if_empty(app: FastAPI, db: Session):
     print("Time to seed.")
     seed_fruits(db)
     print("Done seeding!")
+"""
+#"""
+def seed_if_empty(app: FastAPI, db: Session):
+    # If there are fruits, assume DB is already seeded
+    if db.query(menu_item).count() > 0:
+        return
+
+    print("Time to seed.")
+    seed_menu(db)
+    print("Done seeding!")
+# """
