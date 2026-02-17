@@ -1,8 +1,11 @@
+from sre_constants import LITERAL
+from typing import Literal
 from fastapi import FastAPI
 from requests import session
+from sqlalchemy import literal
 from sqlalchemy.orm import Session
 from db_models.example_model import Fruit_DB
-from db_models.menu_model import menu_item
+from db_models.menu_model import menu_DB
 
 
 def seed_fruits(db: Session):
@@ -39,23 +42,23 @@ def seed_fruits(db: Session):
 
 def seed_menu(db: Session):
     menu = [
-        menu_item(
+        menu_DB(
             name="Bröd",
-            price=10,
+            price=15,
             description="Stenugnsbakat surdegsbröd",
-            ingredients=["Vetemjöl", "Jäst", "Rågmjöl", "Salt"],
+            ingredients="Vetemjöl, Jäst, Rågmjöl, Salt",
         ),
-        menu_item(
+        menu_DB(
             name="Kaffe",
             price=6,
             description="Mörkrost",
-            ingredients=["Kaffe", "Vatten"],
+            ingredients="Kaffe, Vatten",
         ),
-        menu_item(
+        menu_DB(
             name="Citronkladdkaka",
             price=10,
             description="Syrlig och god",
-            ingredients=["Smör", "Ägg", "Vetemjöl", "Citron", "Socker", "Vaniljsocker"],
+            ingredients="Smör, Ägg, Vetemjöl, Citron, Socker, Vaniljsocker",
         ),
     ]
 
@@ -81,7 +84,7 @@ def seed_if_empty(app: FastAPI, db: Session):
 # """
 def seed_if_empty(app: FastAPI, db: Session):
     # If there are fruits, assume DB is already seeded
-    if db.query(menu_item).count() > 0:
+    if db.query(menu_DB).count() > 0:
         return
 
     print("Time to seed.")
