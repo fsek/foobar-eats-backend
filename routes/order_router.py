@@ -11,12 +11,12 @@ order_router = APIRouter()
 def create_order(order_data: OrderCreate, db: DB_dependency):
     time = datetime.now()
     order = Order_DB(
-        items = order_data.items,
-        placed_at = time
-        status = 'Pending'
-        total = 0
-        adress = order_data.address,
-        note = order_data.note,
+        items=order_data.items,
+        placed_at=time,
+        status="Pending",
+        total=0,
+        address=order_data.address,
+        note=order_data.note,
     )
     db.add(order)
     db.commit()
