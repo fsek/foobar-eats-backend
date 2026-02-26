@@ -13,7 +13,7 @@ class Order_DB(BaseModel_DB):
     # represents a list of item IDs; stored as JSON array in the database
     items: Mapped[list[int]] = mapped_column(JSON)
 
-    placed_at: Mapped[int] = mapped_column()
+    placed_at: Mapped[str] = mapped_column()
 
     status: Mapped[str] = mapped_column()
 
