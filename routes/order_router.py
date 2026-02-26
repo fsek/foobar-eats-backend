@@ -8,11 +8,11 @@ order_router = APIRouter()
 
 
 @order_router.post("/", response_model=OrderRead)
-def create_fruit(order_data: OrderCreate, db: DB_dependency):
+def create_order(order_data: OrderCreate, db: DB_dependency):
     time = datetime.now()
     order = Order_DB(
         items = order_data.items,
-        placedat = time
+        placed_at = time
         status = 'Pending'
         total = 0
         adress = order_data.address,
