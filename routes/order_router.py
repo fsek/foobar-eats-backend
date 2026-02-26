@@ -9,10 +9,9 @@ order_router = APIRouter()
 
 @order_router.post("/", response_model=OrderRead)
 def create_order(order_data: OrderCreate, db: DB_dependency):
-    time = datetime.now()
     order = Order_DB(
         items=order_data.items,
-        placed_at=time,
+        placed_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         status="Pending",
         total=0,
         address=order_data.address,
