@@ -5,6 +5,7 @@ from sqlalchemy.orm import mapped_column, Mapped
 
 class Menu_DB(BaseModel_DB):
     __tablename__ = "menu_table"
+    extend_existing = True
 
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
 
