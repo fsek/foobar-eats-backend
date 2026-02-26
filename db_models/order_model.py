@@ -1,15 +1,17 @@
 from typing import Optional
 from db_models.base_model import BaseModel_DB
 from sqlalchemy.orm import mapped_column, Mapped
+from sqlalchemy import JSON
 
 
-class order_DB(BaseModel_DB):
+class Order_DB(BaseModel_DB):
     __tablename__ = "order_table"
     extend_existing = True
 
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
 
-    items: Mapped[list[int]] = mapped_column()
+    # represents a list of item IDs; stored as JSON array in the database
+    items: Mapped[list[int]] = mapped_column(JSON)
 
     placed_at: Mapped[int] = mapped_column()
 
