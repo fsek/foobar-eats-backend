@@ -1,44 +1,31 @@
 from numpy import place
+from pydantic import BaseModel
+from enum import Enum
+
 
 from api_schemas.base_schema import BaseSchema
 
-"""
-class FruitRead(BaseSchema):
-    id: int
-    name: str
-    color: str
-    price: int
-    is_moldy: bool
 
-
-class FruitCreate(BaseSchema):
-    name: str
-    color: str
-    price: int | None = None
-
-
-class FruitUpdate(BaseSchema):
-    name: str | None = None
-    color: str | None = None
-    price: int | None = None
-
-"""
+class OrderStatus(str, Enum):
+    pending = "pending"
+    confirmed = "confirmed"
+    completed = "completed"
 
 
 class OrderRead(BaseSchema):
     id: int
     items: list[int]
     placed_at: str
-    status: str
+    status: OrderStatus
     total: int
     address: str
-    note: str
+    note: str | None = None
 
 
 class OrderCreate(BaseSchema):
     items: list[int]
     address: str
-    note: str
+    note: str | None = None
 
 
 class OrderUpdate(BaseSchema):
