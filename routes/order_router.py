@@ -45,3 +45,18 @@ def delete_order(order_id: int, db: DB_dependency):
     db.delete(order)
     db.commit()
     return order
+
+
+@order_router.patch("/{order_id}", response_model=OrderRead)
+def update_order(order_id: int, order_data: OrderUpdate, db: DB_dependency):
+    order = db.query(Order_DB).filter_by(id=order_id).one_or_none()
+    if order is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
+
+    # This does not allow one to "unset" values that could be null but aren't currently
+    for var, value in vars(order_data).items():
+        if value is not None:
+            setattr(order, var, value)
+
+    db.commit()
+    return order
