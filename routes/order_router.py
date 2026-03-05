@@ -13,7 +13,7 @@ def create_order(order_data: OrderCreate, db: DB_dependency):
     order = Order_DB(
         items=order_data.items,
         placed_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        status="Pending",
+        status="pending",
         total=0,
         address=order_data.address,
         note=order_data.note,

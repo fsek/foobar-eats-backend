@@ -21,7 +21,7 @@ class Order_DB(BaseModel_DB):
 
     address: Mapped[str] = mapped_column(nullable=False)
 
-    note: Mapped[str] = mapped_column(nullable=True)
+    note: Mapped[str | None] = mapped_column(nullable=True)
 
     """
     id: int
