@@ -21,3 +21,27 @@ def create_order(order_data: OrderCreate, db: DB_dependency):
     db.add(order)
     db.commit()
     return order
+
+
+@order_router.get("/{order_id}", response_model=OrderRead)
+def get_order(order_id: int, db: DB_dependency):
+    order = db.query(Order_DB).filter_by(id=order_id).one_or_none()
+    if order is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
+    return order
+
+
+@order_router.get("/", response_model=list[OrderRead])
+def get_all_orders(db: DB_dependency):
+    orders = db.query(Order_DB).all()
+    return orders
+
+
+@order_router.delete("/{order_id}", response_model=OrderRead)
+def delete_order(order_id: int, db: DB_dependency):
+    order = db.query(Order_DB).filter_by(id=order_id).one_or_none()
+    if order is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
+    db.delete(order)
+    db.commit()
+    return order
