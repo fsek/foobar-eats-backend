@@ -8,5 +8,5 @@ from .order_router import order_router
 main_router = APIRouter()
 
 main_router.include_router(fruit_router, prefix="/fruit", tags=["fruit"])
-main_router.include_router(menu_router, prefix="/menu", tags=["menu"])
 main_router.include_router(order_router, prefix="/order", tags=["order"])
+main_router.include_router(menu_router, prefix="/menu", tags=["menu"])  #
