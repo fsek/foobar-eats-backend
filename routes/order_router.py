@@ -20,6 +20,7 @@ def create_order(order_data: OrderCreate, db: DB_dependency):
     )
     db.add(order)
     db.commit()
+    db.refresh(order)
     return order
 
 
